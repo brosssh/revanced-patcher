@@ -69,13 +69,13 @@ class PatchClasses internal constructor(
     }
 
     /**
-     * Opcode string constant -> ClassDef that contains the method.
+     * Opcode string constant -> List<ClassDefWrapper>
      */
     private var stringMap: Map<String, List<ClassDefWrapper>>? = null
 
     /**
      * All classes that contain at least 1 string.
-     * Same contents as [stringMap] except contains no duplicates.
+     * Same contents as [stringMap] values except contains no duplicates.
      */
     private var allClassesWithStrings: List<ClassDefWrapper>? = null
 
@@ -91,8 +91,8 @@ class PatchClasses internal constructor(
         //
         // Pre-size so rehashing doesn't occur and use a more performant load factor.
         LinkedHashMap(2 * set.size, 0.5f)
-    ) { classDefStrings ->
-        classDefStrings.classDef.type
+    ) { wrapper ->
+        wrapper.classDef.type
     })
 
     internal fun close() {
