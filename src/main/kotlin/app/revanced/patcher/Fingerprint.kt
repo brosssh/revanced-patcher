@@ -77,7 +77,7 @@ class Fingerprint internal constructor(
 
         if (filters != null) {
             fun findStringFilterLiterals(list: List<InstructionFilter>) =
-                list.filterIsInstance<StringFilter>().map { it.string() }
+                list.filterIsInstance<StringFilter>().map { it.stringValue }
 
             fingerprintStrings.addAll(findStringFilterLiterals(filters))
 
