@@ -1,3 +1,10 @@
+# [1.2.0-dev.1](https://github.com/brosssh/revanced-patcher/compare/v1.1.1...v1.2.0-dev.1) (2025-11-28)
+
+
+### Features
+
+* Patcher v22 by Liso ([#17](https://github.com/brosssh/revanced-patcher/issues/17)) ([c285e76](https://github.com/brosssh/revanced-patcher/commit/c285e7627d1c68bc6d8d14ce4cb35edb92e35754))
+
 ## [1.1.1](https://github.com/Brosssh/revanced-patcher/compare/v1.1.0...v1.1.1) (2025-04-24)
 
 
