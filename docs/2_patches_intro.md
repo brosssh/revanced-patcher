@@ -123,4 +123,4 @@ val resourcePatch = resourcePatch {
 
 The next page will guide you through creating a development environment for creating patches.
 
-Continue: [👶 Setting up a development environment](2_1_setup.md)
+Continue: [👨‍💻 Setting up a development environment](2_1_setup.md)

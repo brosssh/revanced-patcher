@@ -82,6 +82,7 @@ Patches are organized in a specific way. The file structure looks as follows:
 - 🔥 Write the patch description in the third person, present tense, and end it with a period.
   If a patch removes ads, the description can be omitted because of redundancy,
   but if a patch changes the color of a button, the description can be _Changes the color of the resume button to red._
+- 🔥 Name fingerprints with a best guess of what the target method does.
 - 🔥 Write patches with modularity and reusability in mind. Patches can depend on each other,
   so it is important to write patches in a way that can be used in different contexts.
 - 🔥🔥 Keep patches as minimal as possible. This reduces the risk of failing patches.
@@ -93,10 +94,10 @@ Patches are organized in a specific way. The file structure looks as follows:
 - 🔥🔥🔥 Do not overload a fingerprint with information about a method that's likely to change.
   In the example of an obfuscated method, it's better to fingerprint the method by its return type
   and parameters rather than its name because the name is likely to change. An intelligent selection
-  of an opcode pattern or strings in a method can result in a strong fingerprint dynamic to app updates.
+  of an instructions filters in a method can result in a strong fingerprint dynamic to app updates.
 - 🔥🔥🔥 Document your patches. Patches are abstract, so it is important to document parts of the code
-  that are not self-explanatory. For example, explain why and how a certain method is patched or large blocks
-  of instructions that are modified or added to a method
+  that are not self-explanatory. For example, explain why and how a certain method is patched or 
+  large blocks of instructions that are modified or added to a method.
 
 ## ⏭️ What's next
 
