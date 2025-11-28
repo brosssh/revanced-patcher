@@ -58,7 +58,7 @@
    Continuing the legacy of Vanced
 </p>
 
-# 👶 Setting up a development environment
+# 👨‍💻 Setting up a development environment
 
 To start developing patches with ReVanced Patcher, you must prepare a development environment.
 
