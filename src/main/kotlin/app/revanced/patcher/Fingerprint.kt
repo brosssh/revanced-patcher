@@ -90,7 +90,7 @@ class Fingerprint internal constructor(
         fun machAllClassMethods(value: PatchClasses.ClassDefWrapper): Match? {
             val classDef = value.classDef
             value.classDef.methods.forEach { method ->
-                val match = matchOrNull(classDef, method)
+                val match = matchOrNull(method, classDef)
                 if (match != null) {
                     _matchOrNull = match
                     return match
@@ -101,7 +101,7 @@ class Fingerprint internal constructor(
 
         if (fingerprintStrings.isNotEmpty()) {
             fingerprintStrings.forEach { string ->
-                classes.getClassFromOpcodeStringLiteral(string)?.forEach { stringClass ->
+                patchClasses.getClassFromOpcodeStringLiteral(string)?.forEach { stringClass ->
                     val value = machAllClassMethods(stringClass)
                     if (value != null) {
                         return value
@@ -110,7 +110,7 @@ class Fingerprint internal constructor(
             }
 
             // Fingerprint has partial string matches. Check all classes with strings.
-            classes.getAllClassesWithStrings().forEach { value ->
+            patchClasses.getAllClassesWithStrings().forEach { value ->
                 val value = machAllClassMethods(value)
                 if (value != null) {
                     return value
@@ -119,7 +119,7 @@ class Fingerprint internal constructor(
         }
 
         // Check all classes.
-        classes.classMap.values.forEach { value ->
+        patchClasses.classMap.values.forEach { value ->
             val value = machAllClassMethods(value)
             if (value != null) {
                 return value
@@ -143,7 +143,7 @@ class Fingerprint internal constructor(
         if (_matchOrNull != null) return _matchOrNull
 
         for (method in classDef.methods) {
-            val match = matchOrNull(classDef, method)
+            val match = matchOrNull(method, classDef)
             if (match != null) {
                 _matchOrNull = match
                 return match
@@ -167,7 +167,7 @@ class Fingerprint internal constructor(
     ): Match? {
         if (_matchOrNull != null) return _matchOrNull
 
-        return matchOrNull(classBy(method.definingClass), method)
+        return matchOrNull(method, classDefBy(method.definingClass))
     }
 
     /**
@@ -180,8 +180,8 @@ class Fingerprint internal constructor(
      */
     context(BytecodePatchContext)
     fun matchOrNull(
-        classDef: ClassDef,
         method: Method,
+        classDef: ClassDef
     ): Match? {
         if (_matchOrNull != null) return _matchOrNull
 
@@ -358,7 +358,7 @@ class Fingerprint internal constructor(
     fun match(
         method: Method,
         classDef: ClassDef,
-    ) = matchOrNull(classDef, method) ?: throw patchException()
+    ) = matchOrNull(method, classDef) ?: throw patchException()
 
     /**
      * The class the matching method is a member of, or null if this fingerprint did not match.
@@ -538,7 +538,7 @@ class Match internal constructor(
      * Accessing this property allocates a new mutable instance.
      * Use [originalClassDef] if mutable access is not required.
      */
-    val classDef by lazy { mutableClassBy(originalClassDef) }
+    val classDef by lazy { mutableClassDefBy(originalClassDef) }
 
     /**
      * The mutable version of [originalMethod].
@@ -809,7 +809,7 @@ class FingerprintBuilder() {
         this.customBlock = customBlock
     }
 
-    fun build(): Fingerprint {
+    internal fun build(): Fingerprint {
         // If access flags include constructor then
         // skip the return type check since it's always void.
         if (returnType?.equals("V") == true && accessFlags != null
@@ -837,6 +837,12 @@ class FingerprintBuilder() {
 fun fingerprint(
     block: FingerprintBuilder.() -> Unit,
 ) = FingerprintBuilder().apply(block).build()
+
+@Deprecated("Opcode pattern fuzzy matching never worked well and has been removed")
+fun fingerprint(
+    fuzzyPatternScanThreshold: Int = 0,
+    block: FingerprintBuilder.() -> Unit,
+) = fingerprint(block)
 
 /**
  * Matches two lists of parameters, where the first parameter list

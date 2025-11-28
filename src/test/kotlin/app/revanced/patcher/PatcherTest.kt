@@ -46,7 +46,7 @@ internal object PatcherTest {
                 Logger.getAnonymousLogger(),
             )
 
-            every { context.bytecodeContext.classes } returns mockk(relaxed = true)
+            every { context.bytecodeContext.patchClasses } returns mockk(relaxed = true)
             every { this@mockk() } answers { callOriginal() }
         }
     }
@@ -179,7 +179,7 @@ internal object PatcherTest {
 
     @Test
     fun `matches fingerprint`() {
-        every { patcher.context.bytecodeContext.classes } returns PatchClasses(
+        every { patcher.context.bytecodeContext.patchClasses } returns PatchClasses(
             setOf(ImmutableClassDef(
                     "class",
                     0,
@@ -211,8 +211,8 @@ internal object PatcherTest {
         val patches = setOf(
             bytecodePatch {
                 execute {
-                    fingerprint.match(classes.classMap.values.first().classDef.methods.first())
-                    fingerprint2.match(classes.classMap.values.first().classDef)
+                    fingerprint.match(patchClasses.classMap.values.first().classDef.methods.first())
+                    fingerprint2.match(patchClasses.classMap.values.first().classDef)
                     fingerprint3.originalClassDef
                 }
             },

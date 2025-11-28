@@ -9,13 +9,10 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.StringReference
 import java.util.LinkedList
 
-@Deprecated("Instead use PatchClasses")
-typealias ProxyClassList = PatchClasses
-
 /**
  * All classes for the target app and any extension classes.
  */
-class PatchClasses internal constructor(
+internal class PatchClasses internal constructor(
     /**
      * Class type -> ClassDef.
      */
