@@ -51,12 +51,6 @@ class Fingerprint internal constructor(
     // Backing field needed for lazy initialization.
     private var _matchOrNull: Match? = null
 
-    var ignoreSet: Set<Method> = setOf()
-        set(ignoreSet) {
-            field = ignoreSet
-            _matchOrNull = null
-        }
-
     /**
      * Clears the current match, forcing this fingerprint to resolve again.
      * This method should only be used if this fingerprint is re-used after it's modified,
@@ -72,7 +66,6 @@ class Fingerprint internal constructor(
     context(BytecodePatchContext)
     fun matchOrNull(): Match? {
         if (_matchOrNull != null) return _matchOrNull
-
 
         // Use string declarations to first check only the classes
         // that contain one or more fingerprint strings.
@@ -97,7 +90,6 @@ class Fingerprint internal constructor(
         fun machAllClassMethods(value: PatchClasses.ClassDefWrapper): Match? {
             val classDef = value.classDef
             value.classDef.methods.forEach { method ->
-                if (method in ignoreSet) return@forEach
                 val match = matchOrNull(method, classDef)
                 if (match != null) {
                     _matchOrNull = match
@@ -151,7 +143,6 @@ class Fingerprint internal constructor(
         if (_matchOrNull != null) return _matchOrNull
 
         for (method in classDef.methods) {
-            if (method in ignoreSet) continue
             val match = matchOrNull(method, classDef)
             if (match != null) {
                 _matchOrNull = match
@@ -193,7 +184,6 @@ class Fingerprint internal constructor(
         classDef: ClassDef
     ): Match? {
         if (_matchOrNull != null) return _matchOrNull
-        if (method in ignoreSet) return null
 
         if (returnType != null && !method.returnType.startsWith(returnType)) {
             return null
