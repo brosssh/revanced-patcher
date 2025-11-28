@@ -1,3 +1,10 @@
+## [1.2.1-dev.1](https://github.com/brosssh/revanced-patcher/compare/v1.2.0...v1.2.1-dev.1) (2025-11-28)
+
+
+### Bug Fixes
+
+* Fix from upstream ([#19](https://github.com/brosssh/revanced-patcher/issues/19)) ([191516d](https://github.com/brosssh/revanced-patcher/commit/191516d354c84704c88f1c49ebe6e70a9ad738b5))
+
 # [1.2.0](https://github.com/brosssh/revanced-patcher/compare/v1.1.1...v1.2.0) (2025-11-28)
 
 
