@@ -106,8 +106,8 @@ publishing {
                 }
                 developers {
                     developer {
-                        id = "Brosssh"
-                        name = "Brosssh"
+                        id = "brosssh"
+                        name = "brosssh"
                         email = ""
                     }
                 }
