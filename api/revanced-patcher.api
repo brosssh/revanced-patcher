@@ -532,6 +532,48 @@ public abstract class app/revanced/patcher/patch/PatchBuilder {
 	protected final fun setFinalizeBlock (Lkotlin/jvm/functions/Function1;)V
 }
 
+public final class app/revanced/patcher/patch/PatchBundle {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lapp/revanced/patcher/patch/PatchBundle;
+	public static synthetic fun copy$default (Lapp/revanced/patcher/patch/PatchBundle;Ljava/lang/String;ILjava/lang/Object;)Lapp/revanced/patcher/patch/PatchBundle;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getManifestAttributes ()Lapp/revanced/patcher/patch/PatchBundle$ManifestAttributes;
+	public final fun getPatches ()Lapp/revanced/patcher/patch/PatchLoader$Jar;
+	public final fun getPatchesJar ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/revanced/patcher/patch/PatchBundle$ManifestAttributes {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()Ljava/lang/String;
+	public final fun component6 ()Ljava/lang/String;
+	public final fun component7 ()Ljava/lang/String;
+	public final fun component8 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lapp/revanced/patcher/patch/PatchBundle$ManifestAttributes;
+	public static synthetic fun copy$default (Lapp/revanced/patcher/patch/PatchBundle$ManifestAttributes;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lapp/revanced/patcher/patch/PatchBundle$ManifestAttributes;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAuthor ()Ljava/lang/String;
+	public final fun getContact ()Ljava/lang/String;
+	public final fun getDescription ()Ljava/lang/String;
+	public final fun getLicense ()Ljava/lang/String;
+	public final fun getName ()Ljava/lang/String;
+	public final fun getSource ()Ljava/lang/String;
+	public final fun getVersion ()Ljava/lang/String;
+	public final fun getWebsite ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/revanced/patcher/patch/PatchBundleKt {
+	public static final fun string (Ljava/util/jar/Attributes;Ljava/lang/String;)Ljava/lang/String;
+}
+
 public abstract interface class app/revanced/patcher/patch/PatchContext : java/util/function/Supplier {
 }
 
