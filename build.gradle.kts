@@ -45,6 +45,7 @@ dependencies {
     implementation(libs.apktool.lib)
     implementation(libs.kotlin.reflect)
     implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.kotlinx.collection.immutable)
     implementation(libs.multidexlib2)
     implementation(libs.smali)
     implementation(libs.xpp3)

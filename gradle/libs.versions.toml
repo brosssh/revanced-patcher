@@ -10,6 +10,7 @@ multidexlib2 = "3.0.3.r3"
 #noinspection GradleDependency
 smali = "3.0.5"
 xpp3 = "1.1.4c"
+collection = "0.4.0"
 
 [libraries]
 android = { module = "com.google.android:android", version.ref = "android" }
@@ -21,6 +22,7 @@ mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
 multidexlib2 = { module = "app.revanced:multidexlib2", version.ref = "multidexlib2" }
 smali = { module = "com.android.tools.smali:smali", version.ref = "smali" }
 xpp3 = { module = "xpp3:xpp3", version.ref = "xpp3" }
+kotlinx-collection-immutable = { group = "org.jetbrains.kotlinx", name = "kotlinx-collections-immutable", version.ref = "collection" }
 
 [plugins]
 binary-compatibility-validator = { id = "org.jetbrains.kotlinx.binary-compatibility-validator", version.ref = "binary-compatibility-validator" }

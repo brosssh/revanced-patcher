@@ -1,3 +1,15 @@
+# [1.3.0-dev.1](https://github.com/brosssh/revanced-patcher/compare/v1.2.1...v1.3.0-dev.1) (2025-12-16)
+
+
+### Bug Fixes
+
+* Add dump ([31df568](https://github.com/brosssh/revanced-patcher/commit/31df5689ca9e2f1cc374ca99986023abf6da6505))
+
+
+### Features
+
+* Add PatchBundle class ([b65d795](https://github.com/brosssh/revanced-patcher/commit/b65d7958a6a892fb91978e660ad4fe997f284a7f))
+
 ## [1.2.1](https://github.com/brosssh/revanced-patcher/compare/v1.2.0...v1.2.1) (2025-11-28)
 
 
